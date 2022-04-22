@@ -1,1 +1,7 @@
-## Matrix animation with Vue JS
+## Matrix rain with Vue.js
+
+
+Matrix rain animation using Vue.js.
+
+
+https://user-images.githubusercontent.com/4533133/164798619-d8a14dc9-9406-44d6-bf1c-57c89a51c117.mp4
