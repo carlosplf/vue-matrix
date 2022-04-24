@@ -19,14 +19,29 @@
                 windowHeight: window.innerHeight,
                 max_x: window.innerWidth - 10,
                 max_y: window.innerHeight - 100,
+                color_gradient: null,
             }
         },
-
-        created() {
+        
+        mounted() {
             this.life_cycle();
         },
 
         methods: {
+
+            create_color_gradient() {
+                
+                if(this.context === null || this.color_gradient != null) return -1;
+
+                this.color_gradient = this.context.createLinearGradient(0,0,this.windowWidth, this.windowHeight) 
+                this.color_gradient.addColorStop(0, "red");
+                this.color_gradient.addColorStop(0.2, "yellow");
+                this.color_gradient.addColorStop(0.4, "green");
+                this.color_gradient.addColorStop(0.6, "cyan");
+                this.color_gradient.addColorStop(0.8, "blue");
+                this.color_gradient.addColorStop(1, "magenta");
+            },
+
             // Control the Letter life cycle.
             // Going down on page and back to top.
             async life_cycle() {
@@ -51,9 +66,11 @@
         render() {
             if(this.context === null) return null;
 
+            if(this.color_gradient == null) this.create_color_gradient();
+
             else{
-                this.context.font = "20px Arial";
-                this.context.fillStyle = "#0aff0a";
+                this.context.font = "20px Monospace";
+                this.context.fillStyle = this.color_gradient;
                 this.context.fillText(this.char, this.position_x, this.position_y);
             }
         },

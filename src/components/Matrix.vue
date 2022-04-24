@@ -66,7 +66,7 @@
             // Apply a dark filter to canvas, making old letters darker.
             async animate() {
                 do{
-                    this.vueCtx.fillStyle = 'rgba(0,0,0,0.05)';
+                    this.vueCtx.fillStyle = 'rgba(0,0,0,0.08)';
                     this.vueCtx.fillRect(0,0, this.windowWidth, this.windowHeight);
                     await new Promise(r => setTimeout(r, 20));
                 }while(true);
